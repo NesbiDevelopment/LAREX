@@ -1,3 +1,31 @@
+Offline Larex
+=============
+This branch is not officially supported and was just created after a request.
+It displays a way to use Larex code offline.
+
+The following is part of an email exchange that that detailed the potential usage of the Larex code in an offline application:
+
+--------------------------------------------
+
+The Larex webapp was created out of an existing desktop app that no longer exists in this form, the inclusion of Larex more or less as an module without gui should be possible by including the Larex java classes found in the package "larex" https://github.com/chreul/LAREX/tree/master/Larex/src/main/java/larex
+
+All webapp calls go through a facade class https://github.com/chreul/LAREX/blob/master/Larex/src/main/java/com/web/facade/LarexFacade.java 
+
+This is done to ensure that the webapp classes can be separate from the core functionality, to include web specific functionality like json export.
+
+This means that ever important call is first send to the facade and you could either:
+
+* Create your own facade with your own classes that implement the base larex classes
+
+or
+
+* Use the existing facade and adjust the web models from https://github.com/chreul/LAREX/tree/master/Larex/src/main/java/com/web/model 
+
+Afterwards it is important to change the maven pom, by removing all unwanted dependencies, like spring (for web) etc.
+
+--------------------------------------------
+
+
 # LAREX
 
 LAREX is a semi-automatic open-source tool for layout analysis on early printed books. 
